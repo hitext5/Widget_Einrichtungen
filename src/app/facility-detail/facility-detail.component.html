@@ -1,0 +1,6 @@
+<div *ngIf="facility">
+  <h2>{{facility.name | uppercase}} Details</h2>
+  <div>id: {{facility.id}}</div>
+  <div>name: {{facility.name}}</div>
+  <button type="button" (click)="goBack()">go back</button>
+</div>

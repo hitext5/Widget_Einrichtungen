@@ -1,0 +1,9 @@
+<h2>Top Facilities</h2>
+<div class="facilities-menu">
+  <a *ngFor="let facility of facilities"
+     routerLink="/detail/{{facility.id}}">
+    {{facility.name}}
+  </a>
+</div>
+
+<app-facility-search></app-facility-search>

@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Widget_Einrichtungen'`, () => {
+  it(`should have as title 'Webtech'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Widget_Einrichtungen');
+    expect(app.title).toEqual('Webtech');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Widget_Einrichtungen app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Webtech app is running!');
   });
 });
