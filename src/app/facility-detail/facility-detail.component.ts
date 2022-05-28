@@ -20,12 +20,12 @@ export class FacilityDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.gerFacility();
+    this.getFacility();
   }
 
-  gerFacility(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.facilityService.getFacility(id)
+  getFacility(): void {
+    const name = String(this.route.snapshot.paramMap.get('name'));
+    this.facilityService.getFacility(name)
       .subscribe(facility => this.facility = facility);
   }
 

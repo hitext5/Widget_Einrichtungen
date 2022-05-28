@@ -1,7 +1,7 @@
 <h2>Top Facilities</h2>
 <div class="facilities-menu">
   <a *ngFor="let facility of facilities"
-     routerLink="/detail/{{facility.id}}">
+     routerLink="/detail/{{facility.name}}">
     {{facility.name}}
   </a>
 </div>

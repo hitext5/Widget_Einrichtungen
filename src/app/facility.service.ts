@@ -30,17 +30,17 @@ export class FacilityService {
       );
   }
 
-  /** GET facility by id. Return `undefined` when id not found */
-  getFacility<Data>(id: number): Observable<Facility> {
-    const url = `${this.facilitiesUrl}/?id=${id}`;
+  /** GET facility by name. Return `undefined` when name not found */
+  getFacility<Data>(name: string): Observable<Facility> {
+    const url = `${this.facilitiesUrl}/?name=${name}`;
     return this.http.get<Facility[]>(url)
       .pipe(
         map(facilities => facilities[0]), // returns a {0|1} element array
         tap(h => {
           const outcome = h ? 'fetched' : 'did not find';
-          this.log(`${outcome} facility id=${id}`);
+          this.log(`${outcome} facility name=${name}`);
         }),
-        catchError(this.handleError<Facility>(`getFacility id=${id}`))
+        catchError(this.handleError<Facility>(`getFacility id=${name}`))
       );
   }
 

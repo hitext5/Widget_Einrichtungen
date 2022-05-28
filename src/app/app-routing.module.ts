@@ -7,7 +7,7 @@ import { FacilityDetailComponent } from './facility-detail/facility-detail.compo
 
 const routes: Routes = [
   { path: '', redirectTo: '/topSearched', pathMatch: 'full' },
-  { path: 'detail/:id', component: FacilityDetailComponent },
+  { path: 'detail/:name', component: FacilityDetailComponent },
   { path: 'topSearched', component: TopSearchedComponent },
   { path: 'facilities', component: FacilitiesComponent }
 ];
