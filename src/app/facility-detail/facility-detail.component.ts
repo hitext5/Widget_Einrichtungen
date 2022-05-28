@@ -33,7 +33,10 @@ export class FacilityDetailComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
+  save(name: string, age: number, secretIdentity: string): void {
+
+    // TODO prüfen, ob name einen Wert hat, wenn ja übergeben, ansonsten alten Wert behalten
+
     if (this.facility) {
       this.facilityService.updateFacility(this.facility)
         .subscribe(() => this.goBack());

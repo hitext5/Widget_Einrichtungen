@@ -11,6 +11,6 @@ export class MessageService {
   }
 
   clear() {
-    this.messages = ['FacilityService: fetched facilities'];
+    this.messages = [];
   }
 }

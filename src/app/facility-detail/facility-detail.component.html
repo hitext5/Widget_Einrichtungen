@@ -3,3 +3,18 @@
   <app-read-json></app-read-json>
   <button type="button" (click)="goBack()">go back</button>
 </div>
+<div>
+  <label for="update-name">Name korrigieren: </label>
+  <input id="update-name" #name />
+</div>
+<div>
+  <label for="update-age">Alter korrigieren: </label>
+  <input id="update-age" #age />
+</div>
+<div>
+  <label for="update-secretIdentity">Secret Identity korrigieren: </label>
+  <input id="update-secretIdentity" #secretIdentity />
+</div>
+<div>
+  <button type="button" (click)="save(name.value, age.valueAsNumber, secretIdentity.value)">save</button>
+</div>

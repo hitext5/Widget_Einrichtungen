@@ -1,9 +1,18 @@
-<h2>My Facilities</h2>
+<h2>Einrichtungsübersicht</h2>
 <app-facility-search></app-facility-search>
 <ul class="facilities">
   <li *ngFor="let facility of facilities | orderBy: 'name'">
+    <button type="button" class="delete" title="delete facility"
+            (click)="delete(facility)">x</button>
     <a routerLink="/detail/{{facility.name}}">
     {{facility.name}}
     </a>
   </li>
 </ul>
+<div>
+  <label for="new-facility">Name der Einrichtung: </label>
+  <input id="new-facility" #facilityName />
+  <button type="button" class="add-button" (click)="add(facilityName.value); facilityName.value=''">
+  fehlende Einrichtung hinzufügen
+  </button>
+</div>

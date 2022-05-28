@@ -33,7 +33,7 @@ export class FacilitiesComponent implements OnInit {
 
   delete(facility: Facility): void {
     this.facilities = this.facilities.filter(h => h !== facility);
-    this.facilityService.deleteFacility(facility.id).subscribe();
+    this.facilityService.deleteFacility(facility.name).subscribe();
   }
 }
 
