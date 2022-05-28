@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import mode from '../FileJson/powers.json';
+import mode from 'src/assets/jsonFiles/powers.json';
 import {FacilityDetail} from "../FacilityDetail";
 
 @Component({
@@ -10,6 +10,10 @@ import {FacilityDetail} from "../FacilityDetail";
 })
 export class ReadJsonComponent implements OnInit {
   test: FacilityDetail = mode;
+
+  // TODO mode als List mit i nach jeweiliger facility filtern
+  // TODO oder variabler import möglich?
+  // TODO oder alles in memory data?
 
   constructor() {
   }

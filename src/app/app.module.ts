@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TopSearchedComponent } from './topSearched/topSearched.component';
 import { FacilitySearchComponent } from './facility-search/facility-search.component';
 import { ReadJsonComponent } from './read-json/read-json.component';
+import {OrderByPipe} from "./OrderByPipe";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReadJsonComponent } from './read-json/read-json.component';
     FacilityDetailComponent,
     TopSearchedComponent,
     FacilitySearchComponent,
-    ReadJsonComponent
+    ReadJsonComponent,
+    OrderByPipe
   ],
   imports: [
     HttpClientModule,
@@ -42,4 +44,4 @@ export class AppModule { }
 // TODO Zugriff auf Server
 // TODO aktualisierungsfeature
 // TODO counter für Top
-// TODO Json daten laden  + img
+// TODO img laden
