@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit} from '@angular/core';
 import { Facility } from '../facility';
 import { FacilityService } from '../facility.service';
 
@@ -10,22 +9,28 @@ import { FacilityService } from '../facility.service';
 })
 export class FacilitiesComponent implements OnInit {
   facilities: Facility[] = [];
+  order = "asc"
 
-  constructor(private facilityService: FacilityService) {}
+  constructor(private facilityService: FacilityService) {
+  }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.getFacilities();
   }
 
   getFacilities(): void {
     this.facilityService.getFacilities()
-      .subscribe(facilities => this.facilities = facilities);
+      .subscribe(facilities => {
+        this.facilities = facilities;
+      });
   }
 
   add(name: string): void {
     name = name.trim();
-    if (!name) { return; }
-    this.facilityService.addFacility({ name } as Facility)
+    if (!name) {
+      return;
+    }
+    this.facilityService.addFacility({name} as Facility)
       .subscribe(facility => {
         this.facilities.push(facility);
       });
@@ -36,4 +41,3 @@ export class FacilitiesComponent implements OnInit {
     this.facilityService.deleteFacility(facility.name).subscribe();
   }
 }
-

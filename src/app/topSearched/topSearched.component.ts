@@ -13,10 +13,10 @@ export class TopSearchedComponent implements OnInit {
   constructor(private facilityService: FacilityService) { }
 
   ngOnInit(): void {
-    this.getFacilites();
+    this.getFacilities();
   }
 
-  getFacilites(): void {
+  getFacilities(): void {
     this.facilityService.getFacilities()
       .subscribe(facilities => this.facilities = facilities.slice(1, 5));
   }
