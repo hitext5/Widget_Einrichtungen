@@ -40,4 +40,8 @@ export class FacilitiesComponent implements OnInit {
     this.facilities = this.facilities.filter(h => h !== facility);
     this.facilityService.deleteFacility(facility.name).subscribe();
   }
+
+  toggleOrder(): void {
+    this.order = this.order == "asc" ? "desc" : "asc"
+  }
 }
