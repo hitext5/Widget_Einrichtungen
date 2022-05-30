@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import {Component, OnInit, Input} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
-import { FacilityService } from '../facility.service';
-import { Facility } from '../facility';
+import {FacilityService} from '../facility.service';
+import {Facility} from '../facility';
 
 @Component({
   selector: 'app-facility-detail',
@@ -12,12 +12,14 @@ import { Facility } from '../facility';
 })
 export class FacilityDetailComponent implements OnInit {
   @Input() facility?: Facility;
+  weekdays: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private facilityService: FacilityService,
     private location: Location
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.getFacility();
@@ -26,7 +28,10 @@ export class FacilityDetailComponent implements OnInit {
   getFacility(): void {
     const name = String(this.route.snapshot.paramMap.get('name'));
     this.facilityService.getFacility(name)
-      .subscribe(facility => this.facility = facility);
+      .subscribe(facility => {
+        this.facility = facility;
+        this.weekdays = facility.oeffnungszeiten;
+      });
   }
 
   goBack(): void {

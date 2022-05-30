@@ -1,8 +1,14 @@
+<table>
 <div *ngIf="facility">
-  <h2>{{facility.name | uppercase}} Details</h2>
-  <app-read-json></app-read-json>
+  <th>{{facility.name | uppercase}} Details</th>
+  <tr *ngFor="let weekday of facility.oeffnungszeiten">
+    <td>{{weekday}}</td>
+  </tr>
+  <tr>Ansprechpartner: {{facility.ansprechpartner}}</tr>
+  <tr>Telefonnummer: {{facility.telefonnummer}}</tr>
   <button type="button" (click)="goBack()">go back</button>
 </div>
+</table>
 <div>
   <label for="update-name">Name korrigieren: </label>
   <input id="update-name" #name />
