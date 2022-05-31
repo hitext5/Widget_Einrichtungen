@@ -14,7 +14,6 @@ import { FacilityDetailComponent } from './facility-detail/facility-detail.compo
 import { AppRoutingModule } from './app-routing.module';
 import { TopSearchedComponent } from './topSearched/topSearched.component';
 import { FacilitySearchComponent } from './facility-search/facility-search.component';
-import { ReadJsonComponent } from './read-json/read-json.component';
 import {OrderByPipe} from "./OrderByPipe";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
@@ -26,7 +25,6 @@ import {MatIconModule} from "@angular/material/icon";
     FacilityDetailComponent,
     TopSearchedComponent,
     FacilitySearchComponent,
-    ReadJsonComponent,
     OrderByPipe
   ],
   imports: [
@@ -49,6 +47,5 @@ export class AppModule { }
 
 // TODO css
 // TODO html
-// TODO Zugriff auf Server
 // TODO aktualisierungsfeature (save button anpassen)
 // TODO counter für Top
