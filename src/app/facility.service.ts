@@ -92,6 +92,7 @@ export class FacilityService {
       catchError(this.handleError<Facility>('deleteFacility'))
     );
   }
+
   /** GET facilities whose name contains search term */
   searchFacilities(term: string): Observable<Facility[]> {
     if (!term.trim()) {

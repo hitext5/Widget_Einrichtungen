@@ -1,9 +1,9 @@
-<table>
-  <div *ngIf="facility">
+<div *ngIf="facility">
+  <table>
     <th>{{facility.name | uppercase}} Details</th>
     <tr></tr>
     <td *ngFor="let monday of facility.oeffnungszeiten.montag">
-     {{monday}}
+      {{monday}}
     </td>
     <tr></tr>
     <td *ngFor="let tuesday of facility.oeffnungszeiten.montag">
@@ -15,7 +15,7 @@
     </td>
     <tr></tr>
     <td *ngFor="let thursday  of facility.oeffnungszeiten.montag">
-     {{thursday }}
+      {{thursday }}
     </td>
     <tr></tr>
     <td *ngFor="let friday of facility.oeffnungszeiten.montag">
@@ -24,21 +24,38 @@
     <tr>Ansprechpartner: {{facility.ansprechpartner}}</tr>
     <tr>Telefonnummer: {{facility.telefonnummer}}</tr>
     <tr><img src="/assets/images/{{facility.imageName}}.png" alt="test"/></tr>
-  </div>
-</table>
-<button type="button" (click)="goBack()">go back</button>
-<div>
-  <label for="update-name">Name korrigieren: </label>
-  <input id="update-name" #name/>
-</div>
-<div>
-  <label for="update-age">Alter korrigieren: </label>
-  <input id="update-age" #age/>
-</div>
-<div>
-  <label for="update-secretIdentity">Secret Identity korrigieren: </label>
-  <input id="update-secretIdentity" #secretIdentity/>
-</div>
-<div>
-  <button type="button" (click)="save(name.value, age.valueAsNumber, secretIdentity.value)">save</button>
+
+  </table>
+  <button type="button" (click)="goBack()">go back</button>
+  <table>
+    <th> Änderungen vornehmen:</th>
+    <tr></tr>
+    <td>
+      <label for="update-name">Namen korrigieren: </label>
+      <tr></tr>
+      <input id="update-name" #name>
+      <button type="button" (click)= "saveName(name.value)">save</button>
+    </td>
+    <tr></tr>
+    <td>
+      <label for="update-oeffnungszeiten">Öffnungszeiten korrigieren: </label>
+      <tr></tr>
+      <input id="update-oeffnungszeiten" #oeffnungszeiten/>
+      <button type="button" (click)="saveOeffnungszeiten(oeffnungszeiten.value)">save</button>
+    </td>
+    <tr></tr>
+    <td>
+      <label for="update-ansprechpartner">Ansprechpartner korrigieren: </label>
+      <tr></tr>
+      <input id="update-ansprechpartner" #ansprechpartner/>
+      <button type="button" (click)="saveAnsprechpartner(ansprechpartner.value)">save</button>
+    </td>
+    <tr></tr>
+    <td>
+      <label for="update-telefonnummer">Telefonnummer korrigieren: </label>
+      <tr></tr>
+      <input id="update-telefonnummer" #telefonnummer/>
+      <button type="button" (click)="saveTelefonnummer(telefonnummer.value)">save</button>
+    </td>
+  </table>
 </div>

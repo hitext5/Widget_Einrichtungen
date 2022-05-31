@@ -36,13 +36,42 @@ export class FacilityDetailComponent implements OnInit {
     this.location.back();
   }
 
-  save(name: string, age: number, secretIdentity: string): void {
+  saveName(name: string): void {
+    if (this.facility) {
+      if (name.trim().length != 0 && this.facility.name != name.trim()) {
+        this.facility.name = name.trim();
+        this.facilityService.updateFacility(this.facility)
+          .subscribe(() => this.goBack());
+      }
+    }
+  }
 
-    // TODO prüfen, ob name einen Wert hat, wenn ja übergeben, ansonsten alten Wert behalten
+  saveOeffnungszeiten(oeffnungszeiten: string): void {
 
     if (this.facility) {
       this.facilityService.updateFacility(this.facility)
         .subscribe(() => this.goBack());
     }
   }
+
+  saveAnsprechpartner(ansprechpartner: string): void {
+    if (this.facility) {
+      if (ansprechpartner.trim().length != 0 && this.facility.ansprechpartner != ansprechpartner.trim()) {
+        this.facility.ansprechpartner = ansprechpartner.trim();
+        this.facilityService.updateFacility(this.facility)
+          .subscribe(() => this.goBack());
+      }
+    }
+  }
+
+  saveTelefonnummer(telefonnummer: string): void {
+    if (this.facility) {
+      // Regex um zu prüfen, ob die Telefonnummer nur aus Zahlen besteht (Leerzeichen werden von !Number().isNaN nicht erkannt)
+      if (telefonnummer.length != 0 && Number(telefonnummer.replace(/\D/g, '')) == Number(telefonnummer.trim()) && this.facility.telefonnummer != Number(telefonnummer.trim())) {
+          this.facility.telefonnummer = Number(telefonnummer);
+          this.facilityService.updateFacility(this.facility)
+            .subscribe(() => this.goBack());
+        }
+      }
+    }
 }

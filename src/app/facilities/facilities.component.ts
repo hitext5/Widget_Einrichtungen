@@ -25,6 +25,8 @@ export class FacilitiesComponent implements OnInit {
       });
   }
 
+
+  // TODO Hinzufügen
   add(name: string): void {
     name = name.trim();
     if (!name) {
