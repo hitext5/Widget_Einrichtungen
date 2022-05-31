@@ -12,7 +12,6 @@ import {Facility} from '../facility';
 })
 export class FacilityDetailComponent implements OnInit {
   @Input() facility?: Facility;
-  weekdays: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -30,7 +29,6 @@ export class FacilityDetailComponent implements OnInit {
     this.facilityService.getFacility(name)
       .subscribe(facility => {
         this.facility = facility;
-        this.weekdays = facility.oeffnungszeiten;
       });
   }
 

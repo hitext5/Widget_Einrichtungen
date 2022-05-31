@@ -11,15 +11,16 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 1,
         name: 'Brandl',
-        oeffnungszeiten: [{
-          montag: ['08:00 - 12:00', '15:00-18:00'],
-          dienstag:['08:00 - 12:00', '15:00-18:00'],
-          mittwoch: ['08:00 - 12:00', '15:00-18:00'],
-          donnerstag: ['08:00 - 12:00', '15:00-18:00'],
-          freitag: ['08:00 - 12:00', '15:00-18:00']
-        }],
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag:['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
         ansprechpartner: 'Frau Test',
-        telefonnummer: '0123456789'
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
       },
       {id: 2, name: 'UniCasino'},
       {id: 3, name: 'Mensa'},
