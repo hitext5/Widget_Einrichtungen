@@ -6,19 +6,19 @@
       {{monday}}
     </td>
     <tr></tr>
-    <td *ngFor="let tuesday of facility.oeffnungszeiten.montag">
+    <td *ngFor="let tuesday of facility.oeffnungszeiten.dienstag">
       {{tuesday}}
     </td>
     <tr></tr>
-    <td *ngFor="let wednesday  of facility.oeffnungszeiten.montag">
+    <td *ngFor="let wednesday  of facility.oeffnungszeiten.mittwoch">
       {{wednesday }}
     </td>
     <tr></tr>
-    <td *ngFor="let thursday  of facility.oeffnungszeiten.montag">
+    <td *ngFor="let thursday  of facility.oeffnungszeiten.donnerstag">
       {{thursday }}
     </td>
     <tr></tr>
-    <td *ngFor="let friday of facility.oeffnungszeiten.montag">
+    <td *ngFor="let friday of facility.oeffnungszeiten.freitag">
       {{friday}}
     </td>
     <tr>Ansprechpartner: {{facility.ansprechpartner}}</tr>
@@ -87,6 +87,8 @@
       <button type="button" (click)="saveTelefonnummer(telefonnummer.value)">speichern</button>
     </td>
   </table>
+  <span>{{selectedDay}}</span>
+  <span>{{myTimePickerMorningTo}}</span>
 </div>
 
 

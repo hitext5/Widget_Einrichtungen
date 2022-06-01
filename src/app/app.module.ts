@@ -53,5 +53,3 @@ export class AppModule {
 
 // TODO css
 // TODO html
-// TODO aktualisierungsfeature (save button anpassen)
-// TODO counter für Top

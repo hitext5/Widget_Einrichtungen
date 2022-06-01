@@ -68,25 +68,25 @@ export class FacilityDetailComponent implements OnInit {
           .subscribe(() => this.goBack());
       } else if (this.selectedDay == 'Dienstag') {
         this.facility.oeffnungszeiten.dienstag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
-        this.facility.oeffnungszeiten.dienstag.splice(0, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        this.facility.oeffnungszeiten.dienstag.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
         console.log(this.myTimePickerMorningTo);
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       } else if (this.selectedDay == 'Mittwoch') {
         this.facility.oeffnungszeiten.mittwoch.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
-        this.facility.oeffnungszeiten.mittwoch.splice(0, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        this.facility.oeffnungszeiten.mittwoch.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
         console.log("Mittwoch");
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       } else if (this.selectedDay == 'Donnerstag') {
         this.facility.oeffnungszeiten.donnerstag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
-        this.facility.oeffnungszeiten.donnerstag.splice(0, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        this.facility.oeffnungszeiten.donnerstag.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
         console.log("Donnerstag");
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       } else if (this.selectedDay == 'Freitag') {
         this.facility.oeffnungszeiten.freitag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
-        this.facility.oeffnungszeiten.freitag.splice(0, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        this.facility.oeffnungszeiten.freitag.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
         console.log("Freitag");
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());

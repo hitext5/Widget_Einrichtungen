@@ -25,7 +25,6 @@ export class FacilitiesComponent implements OnInit {
       });
   }
 
-  // TODO updated, aber wird erst nach weiterer Aktion angezeigt warum?
   add(name: string): void {
     name = name.trim();
     if (!name) {
@@ -44,5 +43,37 @@ export class FacilitiesComponent implements OnInit {
 
   toggleOrder(): void {
     this.order = this.order == "asc" ? "desc" : "asc"
+  }
+
+  getOpenFacilities(): void{
+    const weekday: string[] = ["montag", "dienstag", "mittwoch", "donnerstag", "freitag"]
+    for (const element of this.facilities) {
+      const today = new Date().getDay();
+      // @ts-ignore
+      if (this.checkIfOpen(element.oeffnungszeiten[weekday[today-1]])) {
+        this.opendFacilities.push(element);
+      }
+    }
+  }
+
+  checkIfOpen(oeffnungszeiten: string[]): boolean {
+    const currentDate = new Date();
+    for (let i = 0; i < 2; i++) {
+      const morningTimeArray = oeffnungszeiten[i].split(" - ");
+      let startTime = morningTimeArray[0];
+      let endTime = morningTimeArray[1];
+
+      let startDate = new Date(currentDate.getTime()); // now
+      startDate.setHours(Number.parseInt(startTime.split(":")[0]));
+      startDate.setMinutes(Number.parseInt(startTime.split(":")[1]));
+
+      let endDate = new Date(currentDate.getTime());
+      endDate.setHours(Number.parseInt(endTime.split(":")[0]));
+      endDate.setMinutes(Number.parseInt(endTime.split(":")[1]));
+      if (startDate < currentDate && endDate > currentDate) {
+        return true;
+      }
+    }
+    return false
   }
 }
