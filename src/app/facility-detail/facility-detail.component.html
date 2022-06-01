@@ -24,9 +24,10 @@
     <tr>Ansprechpartner: {{facility.ansprechpartner}}</tr>
     <tr>Telefonnummer: {{facility.telefonnummer}}</tr>
     <tr><img src="/assets/images/{{facility.imageName}}.png" alt="test"/></tr>
-
   </table>
+
   <button type="button" (click)="goBack()">go back</button>
+
   <table>
     <th> Änderungen vornehmen:</th>
     <tr></tr>
@@ -34,28 +35,58 @@
       <label for="update-name">Namen korrigieren: </label>
       <tr></tr>
       <input id="update-name" #name>
-      <button type="button" (click)= "saveName(name.value)">save</button>
+      <button type="button" (click)="saveName(name.value)">speichern</button>
     </td>
     <tr></tr>
-    <td>
-      <label for="update-oeffnungszeiten">Öffnungszeiten korrigieren: </label>
+    <article>
+      <label>Tag auswählen:</label>
       <tr></tr>
-      <input id="update-oeffnungszeiten" #oeffnungszeiten/>
-      <button type="button" (click)="saveOeffnungszeiten(oeffnungszeiten.value)">save</button>
-    </td>
+      <select (change)="selectChangeHandler($event)">
+        <option value="Montag">Montag</option>
+        <option value="Dienstag">Dienstag</option>
+        <option value="Mittwoch">Mittwoch</option>
+        <option value="Donnerstag">Donnerstag</option>
+        <option value="Freitag">Freitag</option>
+      </select>
+      <p><span>Ausgewählt: </span><b>{{selectedDay}}</b></p>
+      <label>Öffnungszeiten vormittags auswählen:</label>
+      <tr></tr>
+      <mat-form-field>
+        <input matInput [ngxTimepicker]="pickerMorningFrom" placeholder="Von" [format]="24" [(ngModel)]="myTimePickerMorningFrom" min='08:00 am'>
+        <ngx-material-timepicker #pickerMorningFrom ></ngx-material-timepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [ngxTimepicker]="pickerMorningTo" placeholder="Bis" [format]="24" [(ngModel)]="myTimePickerMorningTo" [min]="myTimePickerMorningFrom">
+        <ngx-material-timepicker #pickerMorningTo ></ngx-material-timepicker>
+      </mat-form-field>
+      <tr></tr>
+      <label>Öffnungszeiten nachmittags auswählen:</label>
+      <tr></tr>
+      <mat-form-field>
+        <input matInput [ngxTimepicker]="pickerAfternoonFrom" placeholder="Von" [format]="24" [(ngModel)]="myTimePickerAfternoonFrom" [min]='myTimePickerMorningTo'>
+        <ngx-material-timepicker #pickerAfternoonFrom ></ngx-material-timepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [ngxTimepicker]="pickerAfternoonTo" placeholder="Bis" [format]="24" [(ngModel)]="myTimePickerAfternoonTo" [min]="myTimePickerAfternoonFrom">
+        <ngx-material-timepicker #pickerAfternoonTo ></ngx-material-timepicker>
+      </mat-form-field>
+      <button type="button" (click)="saveOeffnungszeiten()">speichern</button>
+    </article>
     <tr></tr>
     <td>
       <label for="update-ansprechpartner">Ansprechpartner korrigieren: </label>
       <tr></tr>
       <input id="update-ansprechpartner" #ansprechpartner/>
-      <button type="button" (click)="saveAnsprechpartner(ansprechpartner.value)">save</button>
+      <button type="button" (click)="saveAnsprechpartner(ansprechpartner.value)">speichern</button>
     </td>
     <tr></tr>
     <td>
       <label for="update-telefonnummer">Telefonnummer korrigieren: </label>
       <tr></tr>
       <input id="update-telefonnummer" #telefonnummer/>
-      <button type="button" (click)="saveTelefonnummer(telefonnummer.value)">save</button>
+      <button type="button" (click)="saveTelefonnummer(telefonnummer.value)">speichern</button>
     </td>
   </table>
 </div>
+
+

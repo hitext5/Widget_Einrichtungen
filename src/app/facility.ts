@@ -1,5 +1,6 @@
 export interface Facility {
   id: number;
+  counter: number;
   name: string;
   oeffnungszeiten: {
     montag: string[],

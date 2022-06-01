@@ -25,8 +25,7 @@ export class FacilitiesComponent implements OnInit {
       });
   }
 
-
-  // TODO Hinzufügen
+  // TODO updated, aber wird erst nach weiterer Aktion angezeigt warum?
   add(name: string): void {
     name = name.trim();
     if (!name) {

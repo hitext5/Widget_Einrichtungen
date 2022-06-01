@@ -1,35 +1,45 @@
 <h2>Einrichtungsübersicht</h2>
 <app-facility-search></app-facility-search>
-<table>
-  <th> <button (click)="toggleOrder()">
-    Sortierung
-    <mat-icon *ngIf="order=='asc'">keyboard_arrow_down</mat-icon>
-    <mat-icon *ngIf="order=='desc'">keyboard_arrow_up</mat-icon>
-  </button></th>
+<ul class="facilities">
+  <th>
+    <button (click)="toggleOrder()">
+      Sortierung
+      <mat-icon *ngIf="order=='asc'">keyboard_arrow_down</mat-icon>
+      <mat-icon *ngIf="order=='desc'">keyboard_arrow_up</mat-icon>
+    </button>
+  </th>
   <tr *ngFor="let facility of facilities | orderBy: 'name': order">
     <td>
-      <button type="button" class="delete" title="delete facility"
-            (click)="delete(facility)">x</button>
+      <button type="button" class="delete" title="Einrichtung entfernen"
+              (click)="delete(facility)">x
+      </button>
     </td>
     <td>
       <a routerLink="/detail/{{facility.name}}">
         {{facility.name}}
       </a>
     </td>
-   </tr>
-</table>
-  <!--
-<ul class="facilities">
-  <li *ngFor="let facility of facilities | orderBy: 'name'">
+  </tr>
+</ul>
 
-  </li>
+<label for="add-facility">Einrichtung hinzufügen: </label>
+<div></div>
+<input id="add-facility" #facility/>
+<button type="button" class="add" title="Einrichtung hinzufügen" (click)="add(facility.value); facility.value=''">
+  speichern
+</button>
+<!--
+<ul class="facilities">
+<li *ngFor="let facility of facilities | orderBy: 'name'">
+
+</li>
 </ul>
 </table>
 <div>
-  <label for="new-facility">Name der Einrichtung: </label>
-  <input id="new-facility" #facilityName />
-  <button type="button" class="add-button" (click)="add(facilityName.value); facilityName.value=''">
-  fehlende Einrichtung hinzufügen
-  </button>
+<label for="new-facility">Name der Einrichtung: </label>
+<input id="new-facility" #facilityName />
+<button type="button" class="add-button" (click)="add(facilityName.value); facilityName.value=''">
+fehlende Einrichtung hinzufügen
+</button>
 </div>
 -->

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 
@@ -12,6 +12,11 @@ import {Facility} from '../facility';
 })
 export class FacilityDetailComponent implements OnInit {
   @Input() facility?: Facility;
+  selectedDay: string = '';
+  myTimePickerMorningFrom: string = '';
+  myTimePickerMorningTo: string = '';
+  myTimePickerAfternoonFrom: string = '';
+  myTimePickerAfternoonTo: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +34,9 @@ export class FacilityDetailComponent implements OnInit {
     this.facilityService.getFacility(name)
       .subscribe(facility => {
         this.facility = facility;
+        this.facility.counter = this.facility.counter +1;
+        this.facilityService.updateFacility(this.facility)
+          .subscribe();
       });
   }
 
@@ -46,11 +54,43 @@ export class FacilityDetailComponent implements OnInit {
     }
   }
 
-  saveOeffnungszeiten(oeffnungszeiten: string): void {
 
+  //TODO speichert nicht wieso? erst alle Wochentage überschrieben, dann keine Änderungen mehr
+  saveOeffnungszeiten(): void {
     if (this.facility) {
-      this.facilityService.updateFacility(this.facility)
-        .subscribe(() => this.goBack());
+      // if (this.selectedDay != '' && this.myDatePickerFrom != '' && this.myDatePickerTo != '')
+      // auskommentiert, da eventuell Öffnungszeiten nicht vormittags oder nachmittags angeboten werden
+      if (this.selectedDay == 'Montag') {
+        this.facility.oeffnungszeiten.montag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
+        this.facility.oeffnungszeiten.montag.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        console.log("Montag");
+        this.facilityService.updateFacility(this.facility)
+          .subscribe(() => this.goBack());
+      } else if (this.selectedDay == 'Dienstag') {
+        this.facility.oeffnungszeiten.dienstag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
+        this.facility.oeffnungszeiten.dienstag.splice(0, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        console.log(this.myTimePickerMorningTo);
+        this.facilityService.updateFacility(this.facility)
+          .subscribe(() => this.goBack());
+      } else if (this.selectedDay == 'Mittwoch') {
+        this.facility.oeffnungszeiten.mittwoch.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
+        this.facility.oeffnungszeiten.mittwoch.splice(0, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        console.log("Mittwoch");
+        this.facilityService.updateFacility(this.facility)
+          .subscribe(() => this.goBack());
+      } else if (this.selectedDay == 'Donnerstag') {
+        this.facility.oeffnungszeiten.donnerstag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
+        this.facility.oeffnungszeiten.donnerstag.splice(0, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        console.log("Donnerstag");
+        this.facilityService.updateFacility(this.facility)
+          .subscribe(() => this.goBack());
+      } else if (this.selectedDay == 'Freitag') {
+        this.facility.oeffnungszeiten.freitag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
+        this.facility.oeffnungszeiten.freitag.splice(0, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
+        console.log("Freitag");
+        this.facilityService.updateFacility(this.facility)
+          .subscribe(() => this.goBack());
+      }
     }
   }
 
@@ -68,10 +108,16 @@ export class FacilityDetailComponent implements OnInit {
     if (this.facility) {
       // Regex um zu prüfen, ob die Telefonnummer nur aus Zahlen besteht (Leerzeichen werden von !Number().isNaN nicht erkannt)
       if (telefonnummer.length != 0 && Number(telefonnummer.replace(/\D/g, '')) == Number(telefonnummer.trim()) && this.facility.telefonnummer != Number(telefonnummer.trim())) {
-          this.facility.telefonnummer = Number(telefonnummer);
-          this.facilityService.updateFacility(this.facility)
-            .subscribe(() => this.goBack());
-        }
+        this.facility.telefonnummer = Number(telefonnummer);
+        this.facilityService.updateFacility(this.facility)
+          .subscribe(() => this.goBack());
       }
     }
+  }
+
+  //event handler for the select element's change event
+  selectChangeHandler(event: any) {
+    //update the ui
+    this.selectedDay = event.target.value;
+  }
 }

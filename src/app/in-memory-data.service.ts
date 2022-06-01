@@ -10,10 +10,11 @@ export class InMemoryDataService implements InMemoryDbService {
     const facilities = [
       {
         id: 1,
+        counter: 0,
         name: 'Brandl',
         oeffnungszeiten: {
           montag: ['08:00 - 12:00', '15:00 - 18:00'],
-          dienstag:['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
           mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
           donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
           freitag: ['08:00 - 12:00', '15:00 - 18:00']
@@ -22,21 +23,201 @@ export class InMemoryDataService implements InMemoryDbService {
         telefonnummer: '0123456789',
         imageName: 'testbild'
       },
-      {id: 2, name: 'UniCasino'},
-      {id: 3, name: 'Mensa'},
-      {id: 4, name: 'Friseur'},
-      {id: 5, name: 'LHBw'},
-      {id: 6, name: 'Universitätsbibliothek'},
-      {id: 7, name: 'SanVersZ'},
-      {id: 8, name: 'Schwimmhalle'},
-      {id: 9, name: 'Fitnessanlage'},
-      {id: 10, name: 'Wäschekammer'},
-      {id: 11, name: 'Rechenzentrum'},
-      {id: 12, name: 'Corona-Testzentrum'},
-      {id: 13, name: 'Poststelle'},
-      {id: 14, name: 'PAUS/LRA/Fotostelle'},
-      {id: 15, name: 'Sportförderverein'},
-      {id: 16, name: 'Rechnungsführer'},
+      {
+        id: 2, counter: 0, name: 'UniCasino',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 3, counter: 0, name: 'Mensa',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 4, counter: 0, name: 'Friseur',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 5, counter: 0, name: 'LHBw',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 6, counter: 0, name: 'Universitätsbibliothek',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 7, counter: 0, name: 'SanVersZ',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 8, counter: 0, name: 'Schwimmhalle',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 9, counter: 1, name: 'Fitnessanlage',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 10, counter: 1, name: 'Wäschekammer',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 11, counter: 2, name: 'Rechenzentrum',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 12, counter: 1, name: 'Corona-Testzentrum',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 13, counter: 1, name: 'Poststelle',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 14, counter: 0, name: 'PAUS/LRA/Fotostelle',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 15, counter: 0, name: 'Sportförderverein',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
+      {
+        id: 16, counter: 0, name: 'Rechnungsführer',
+        oeffnungszeiten: {
+          montag: ['08:00 - 12:00', '15:00 - 18:00'],
+          dienstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          mittwoch: ['08:00 - 12:00', '15:00 - 18:00'],
+          donnerstag: ['08:00 - 12:00', '15:00 - 18:00'],
+          freitag: ['08:00 - 12:00', '15:00 - 18:00']
+        },
+        ansprechpartner: 'Frau Test',
+        telefonnummer: '0123456789',
+        imageName: 'testbild'
+      },
     ];
     return {facilities};
   }
