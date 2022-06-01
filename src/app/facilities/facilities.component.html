@@ -7,19 +7,39 @@
       <mat-icon *ngIf="order=='asc'">keyboard_arrow_down</mat-icon>
       <mat-icon *ngIf="order=='desc'">keyboard_arrow_up</mat-icon>
     </button>
+    <mat-checkbox [(ngModel)]="onlyShowOpenFacilities">
+      Nur geöffnete zeigen
+    </mat-checkbox>
   </th>
-  <tr *ngFor="let facility of facilities | orderBy: 'name': order">
-    <td>
-      <button type="button" class="delete" title="Einrichtung entfernen"
-              (click)="delete(facility)">x
-      </button>
-    </td>
-    <td>
-      <a routerLink="/detail/{{facility.name}}">
-        {{facility.name}}
-      </a>
-    </td>
-  </tr>
+  <ng-container *ngIf="!onlyShowOpenFacilities">
+    <tr *ngFor="let facility of facilities | orderBy: 'name': order">
+      <td>
+        <button type="button" class="delete" title="Einrichtung entfernen"
+                (click)="delete(facility)">x
+        </button>
+      </td>
+      <td>
+        <a routerLink="/detail/{{facility.name}}">
+          {{facility.name}}
+        </a>
+      </td>
+    </tr>
+  </ng-container>
+  <ng-container *ngIf="onlyShowOpenFacilities">
+    <tr *ngFor="let facility of opendFacilities | orderBy: 'name': order">
+      <td>
+        <button type="button" class="delete" title="Einrichtung entfernen"
+                (click)="delete(facility)">x
+        </button>
+      </td>
+      <td>
+        <a routerLink="/detail/{{facility.name}}">
+          {{facility.name}}
+        </a>
+      </td>
+    </tr>
+  </ng-container>
+
 </ul>
 
 <label for="add-facility">Einrichtung hinzufügen: </label>

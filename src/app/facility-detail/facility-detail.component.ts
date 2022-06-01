@@ -17,7 +17,6 @@ export class FacilityDetailComponent implements OnInit {
   myTimePickerMorningTo: string = '';
   myTimePickerAfternoonFrom: string = '';
   myTimePickerAfternoonTo: string = '';
-
   constructor(
     private route: ActivatedRoute,
     private facilityService: FacilityService,

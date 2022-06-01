@@ -10,6 +10,8 @@ import { FacilityService } from '../facility.service';
 export class FacilitiesComponent implements OnInit {
   facilities: Facility[] = [];
   order = "asc"
+  onlyShowOpenFacilities = false;
+  opendFacilities: Facility[] = []
 
   constructor(private facilityService: FacilityService) {
   }
@@ -22,6 +24,7 @@ export class FacilitiesComponent implements OnInit {
     this.facilityService.getFacilities()
       .subscribe(facilities => {
         this.facilities = facilities;
+        this.getOpenFacilities();
       });
   }
 
