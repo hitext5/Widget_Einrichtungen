@@ -1,7 +1,7 @@
 <h2>Am häufigsten gesuchte Einrichtungen</h2>
 <div class="facilities-menu">
   <a *ngFor="let facility of facilities"
-     routerLink="/detail/{{facility.name}}">
+     routerLink="/detail/{{facility.id}}">
     {{facility.name}}
   </a>
 </div>

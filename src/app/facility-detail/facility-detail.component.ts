@@ -29,8 +29,8 @@ export class FacilityDetailComponent implements OnInit {
   }
 
   getFacility(): void {
-    const name = String(this.route.snapshot.paramMap.get('name'));
-    this.facilityService.getFacility(name)
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.facilityService.getFacility(id)
       .subscribe(facility => {
         this.facility = facility;
         this.facility.counter = this.facility.counter +1;

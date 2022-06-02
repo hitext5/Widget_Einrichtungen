@@ -30,17 +30,17 @@ export class FacilityService {
       );
   }
 
-  /** GET facility by name. Return `undefined` when name not found */
-  getFacility<Data>(name: string): Observable<Facility> {
-    const url = `${this.facilitiesUrl}/?name=${name}`;
+  /** GET facility by id. Return `undefined` when id not found */
+  getFacility<Data>(id: number): Observable<Facility> {
+    const url = `${this.facilitiesUrl}/?id=${id}`;
     return this.http.get<Facility[]>(url)
       .pipe(
         map(facilities => facilities[0]), // returns a {0|1} element array
         tap(h => {
           const outcome = h ? 'fetched' : 'did not find';
-          this.log(`${outcome} facility name=${name}`);
+          this.log(`${outcome} facility id=${id}`);
         }),
-        catchError(this.handleError<Facility>(`getFacility name=${name}`))
+        catchError(this.handleError<Facility>(`getFacility name=${id}`))
       );
   }
 
@@ -70,7 +70,7 @@ export class FacilityService {
   /** PUT: update the facility on the server */
   updateFacility(facility: Facility): Observable<any> {
     return this.http.put(this.facilitiesUrl, facility, this.httpOptions).pipe(
-      tap(_ => this.log(`updated facility name=${facility.name}`)),
+      tap(_ => this.log(`updated facility id=${facility.id}`)),
       catchError(this.handleError<any>('updateFacility'))
     );
   }
@@ -78,17 +78,16 @@ export class FacilityService {
   /** POST: add a new facility to the server */
   addFacility(facility: Facility): Observable<Facility> {
     return this.http.post<Facility>(this.facilitiesUrl, facility, this.httpOptions).pipe(
-      tap((newFacility: Facility) => this.log(`added facility w/ name=${newFacility.name}`)),
+      tap((newFacility: Facility) => this.log(`added facility w/ id=${newFacility.id}`)),
       catchError(this.handleError<Facility>('addFacility'))
     );
   }
 
   /** DELETE: delete the facility from the server */
-  deleteFacility(name: string): Observable<Facility> {
-    const url = `${this.facilitiesUrl}/${name}`;
-
+  deleteFacility(id: number): Observable<Facility> {
+    const url = `${this.facilitiesUrl}/${id}`;
     return this.http.delete<Facility>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted facility name=${name}`)),
+      tap(_ => this.log(`deleted facility id=${id}`)),
       catchError(this.handleError<Facility>('deleteFacility'))
     );
   }

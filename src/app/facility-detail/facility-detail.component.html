@@ -23,7 +23,7 @@
     </td>
     <tr>Ansprechpartner: {{facility.ansprechpartner}}</tr>
     <tr>Telefonnummer: {{facility.telefonnummer}}</tr>
-    <tr><img src="/assets/images/{{facility.imageName}}.png" alt="test"/></tr>
+    <tr><img src="/assets/images/{{facility.imageName}}.png" alt=""/></tr>
   </table>
 
   <button type="button" (click)="goBack()">go back</button>
@@ -87,8 +87,6 @@
       <button type="button" (click)="saveTelefonnummer(telefonnummer.value)">speichern</button>
     </td>
   </table>
-  <span>{{selectedDay}}</span>
-  <span>{{myTimePickerMorningTo}}</span>
 </div>
 
 

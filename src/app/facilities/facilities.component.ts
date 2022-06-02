@@ -33,15 +33,16 @@ export class FacilitiesComponent implements OnInit {
     if (!name) {
       return;
     }
-    this.facilityService.addFacility({name} as Facility)
+    this.facilityService.addFacility({id: this.facilities.length+1,counter : 0, name: name, oeffnungszeiten: { montag: [], dienstag: [], mittwoch: [], donnerstag: [], freitag: [] }, ansprechpartner: "Frau/Herr Mustermann", telefonnummer: 123, imageName: "testbild" } as Facility)
       .subscribe(facility => {
         this.facilities.push(facility);
+        this.getFacilities();
       });
   }
 
   delete(facility: Facility): void {
     this.facilities = this.facilities.filter(h => h !== facility);
-    this.facilityService.deleteFacility(facility.name).subscribe();
+    this.facilityService.deleteFacility(facility.id).subscribe();
   }
 
   toggleOrder(): void {
