@@ -53,8 +53,6 @@ export class FacilityDetailComponent implements OnInit {
     }
   }
 
-
-  //TODO speichert nicht wieso? erst alle Wochentage überschrieben, dann keine Änderungen mehr
   saveOeffnungszeiten(): void {
     if (this.facility) {
       // if (this.selectedDay != '' && this.myDatePickerFrom != '' && this.myDatePickerTo != '')
