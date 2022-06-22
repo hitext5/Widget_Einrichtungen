@@ -1,6 +1,7 @@
-import { Component, OnInit} from '@angular/core';
-import { Facility } from '../facility';
-import { FacilityService } from '../facility.service';
+import {Component, OnInit} from '@angular/core';
+import {Facility} from '../facility';
+import {FacilityService} from '../facility.service';
+import {MessageService} from "../message.service";
 
 @Component({
   selector: 'app-facilities',
@@ -13,10 +14,12 @@ export class FacilitiesComponent implements OnInit {
   onlyShowOpenFacilities = false;
   opendFacilities: Facility[] = []
 
-  constructor(private facilityService: FacilityService) {
+  constructor(
+    private facilityService: FacilityService,
+    private messageService: MessageService) {
   }
 
-    ngOnInit(): void {
+  ngOnInit(): void {
     this.getFacilities();
   }
 
@@ -33,7 +36,15 @@ export class FacilitiesComponent implements OnInit {
     if (!name) {
       return;
     }
-    this.facilityService.addFacility({id: this.facilities.length+1,counter : 0, name: name, oeffnungszeiten: { montag: [], dienstag: [], mittwoch: [], donnerstag: [], freitag: [] }, ansprechpartner: "Frau/Herr Mustermann", telefonnummer: 123, imageName: "testbild" } as Facility)
+    this.facilityService.addFacility({
+      id: this.facilities.length + 1,
+      counter: 0,
+      name: name,
+      oeffnungszeiten: {montag: [], dienstag: [], mittwoch: [], donnerstag: [], freitag: []},
+      ansprechpartner: "Frau/Herr Mustermann",
+      telefonnummer: 123,
+      imageName: "testbild"
+    } as Facility)
       .subscribe(facility => {
         this.facilities.push(facility);
         this.getFacilities();
@@ -49,12 +60,12 @@ export class FacilitiesComponent implements OnInit {
     this.order = this.order == "asc" ? "desc" : "asc"
   }
 
-  getOpenFacilities(): void{
+  getOpenFacilities(): void {
     const weekday: string[] = ["montag", "dienstag", "mittwoch", "donnerstag", "freitag"]
     for (const element of this.facilities) {
       const today = new Date().getDay();
       // @ts-ignore
-      if (this.checkIfOpen(element.oeffnungszeiten[weekday[today-1]])) {
+      if (this.checkIfOpen(element.oeffnungszeiten[weekday[today - 1]])) {
         this.opendFacilities.push(element);
       }
     }
@@ -63,19 +74,26 @@ export class FacilitiesComponent implements OnInit {
   checkIfOpen(oeffnungszeiten: string[]): boolean {
     const currentDate = new Date();
     for (let i = 0; i < 2; i++) {
-      const morningTimeArray = oeffnungszeiten[i].split(" - ");
-      let startTime = morningTimeArray[0];
-      let endTime = morningTimeArray[1];
+      try {
+        const morningTimeArray = oeffnungszeiten[i].split(" - ");
+        let startTime = morningTimeArray[0];
+        let endTime = morningTimeArray[1];
 
-      let startDate = new Date(currentDate.getTime()); // now
-      startDate.setHours(Number.parseInt(startTime.split(":")[0]));
-      startDate.setMinutes(Number.parseInt(startTime.split(":")[1]));
+        let startDate = new Date(currentDate.getTime()); // now
+        startDate.setHours(Number.parseInt(startTime.split(":")[0]));
+        startDate.setMinutes(Number.parseInt(startTime.split(":")[1]));
 
-      let endDate = new Date(currentDate.getTime());
-      endDate.setHours(Number.parseInt(endTime.split(":")[0]));
-      endDate.setMinutes(Number.parseInt(endTime.split(":")[1]));
-      if (startDate < currentDate && endDate > currentDate) {
-        return true;
+        let endDate = new Date(currentDate.getTime());
+        endDate.setHours(Number.parseInt(endTime.split(":")[0]));
+        endDate.setMinutes(Number.parseInt(endTime.split(":")[1]));
+        if (startDate < currentDate && endDate > currentDate) {
+          return true;
+        }
+      } catch (e) {
+        if (e instanceof TypeError) {
+        } else {
+          this.messageService.add('Caught unexpected error ${e}')
+        }
       }
     }
     return false
