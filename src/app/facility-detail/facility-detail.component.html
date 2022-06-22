@@ -1,53 +1,72 @@
 <div *ngIf="facility">
-  <table>
-    <th>{{facility.name | uppercase}} Details</th>
+  <br>
+  <img src="/assets/images/Unibw_Logo.jpg" class="logo"/>
+  <th>{{facility.name | uppercase}} Details</th>
+  <table class="test">
     <tr></tr>
+    <td><b>Tag: </b></td>
+    <td><b>Vormittag: </b></td>
+    <td><b>Nachmittag:</b></td>
+    <tr></tr>
+    <td>Montag:</td>
     <td *ngFor="let monday of facility.oeffnungszeiten.montag">
       {{monday}}
     </td>
     <tr></tr>
+    <td>Dienstag:</td>
     <td *ngFor="let tuesday of facility.oeffnungszeiten.dienstag">
       {{tuesday}}
     </td>
     <tr></tr>
+    <td>Mittwoch:</td>
     <td *ngFor="let wednesday  of facility.oeffnungszeiten.mittwoch">
       {{wednesday }}
     </td>
     <tr></tr>
+    <td>Donnerstag:</td>
     <td *ngFor="let thursday  of facility.oeffnungszeiten.donnerstag">
       {{thursday }}
     </td>
     <tr></tr>
+    <td>Freitag:</td>
     <td *ngFor="let friday of facility.oeffnungszeiten.freitag">
       {{friday}}
     </td>
-    <tr>Ansprechpartner: {{facility.ansprechpartner}}</tr>
-    <tr>Telefonnummer: {{facility.telefonnummer}}</tr>
-    <tr><img src="/assets/images/{{facility.imageName}}.png" alt=""/></tr>
+
   </table>
+    <br>
+    <tr><b>Ansprechpartner: </b>{{facility.ansprechpartner}}</tr>
+    <br>
+    <tr><b>Telefonnummer: </b>{{facility.telefonnummer}}</tr>
+    <br>
+    <tr><img src="/assets/images/{{facility.imageName}}.png" alt=""/></tr>
 
-  <button type="button" (click)="goBack()">go back</button>
 
+
+<br><br>
   <table>
     <th> Änderungen vornehmen:</th>
     <tr></tr>
     <td>
       <label for="update-name">Namen korrigieren: </label>
       <tr></tr>
-      <input id="update-name" #name>
-      <button type="button" (click)="saveName(name.value)">speichern</button>
+      <input type="text" size="43"id="update-name" #name>
+      <button type="button" (click)="saveName(name.value)">Speichern</button><button type="button" class="goBack" (click)="goBack()">Go back</button>
     </td>
     <tr></tr>
     <article>
       <label>Tag auswählen:</label>
+      <br><br>
       <tr></tr>
       <select (change)="selectChangeHandler($event)">
+        <option value="-">-</option>
         <option value="Montag">Montag</option>
         <option value="Dienstag">Dienstag</option>
         <option value="Mittwoch">Mittwoch</option>
         <option value="Donnerstag">Donnerstag</option>
         <option value="Freitag">Freitag</option>
       </select>
+      <br><br>
       <p><span>Ausgewählt: </span><b>{{selectedDay}}</b></p>
       <label>Öffnungszeiten vormittags auswählen:</label>
       <tr></tr>
@@ -56,35 +75,35 @@
         <ngx-material-timepicker #pickerMorningFrom ></ngx-material-timepicker>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [ngxTimepicker]="pickerMorningTo" placeholder="Bis" [format]="24" [(ngModel)]="myTimePickerMorningTo" [min]="myTimePickerMorningFrom">
+        <input matInput [ngxTimepicker]="pickerMorningTo" placeholder="Bis" [format]="24" [(ngModel)]="myTimePickerMorningTo" [min]="myTimePickerMorningFrom" max="11:59 am">
         <ngx-material-timepicker #pickerMorningTo ></ngx-material-timepicker>
       </mat-form-field>
       <tr></tr>
       <label>Öffnungszeiten nachmittags auswählen:</label>
       <tr></tr>
       <mat-form-field>
-        <input matInput [ngxTimepicker]="pickerAfternoonFrom" placeholder="Von" [format]="24" [(ngModel)]="myTimePickerAfternoonFrom" [min]='myTimePickerMorningTo'>
+        <input matInput [ngxTimepicker]="pickerAfternoonFrom" placeholder="Von" [format]="24" [(ngModel)]="myTimePickerAfternoonFrom" min='12:00 pm'>
         <ngx-material-timepicker #pickerAfternoonFrom ></ngx-material-timepicker>
       </mat-form-field>
       <mat-form-field>
         <input matInput [ngxTimepicker]="pickerAfternoonTo" placeholder="Bis" [format]="24" [(ngModel)]="myTimePickerAfternoonTo" [min]="myTimePickerAfternoonFrom">
         <ngx-material-timepicker #pickerAfternoonTo ></ngx-material-timepicker>
       </mat-form-field>
-      <button type="button" (click)="saveOeffnungszeiten()">speichern</button>
+      <button type="button" (click)="saveOeffnungszeiten()">Speichern</button>
     </article>
     <tr></tr>
     <td>
       <label for="update-ansprechpartner">Ansprechpartner korrigieren: </label>
       <tr></tr>
-      <input id="update-ansprechpartner" #ansprechpartner/>
-      <button type="button" (click)="saveAnsprechpartner(ansprechpartner.value)">speichern</button>
+      <input type="text" size="43" id="update-ansprechpartner" #ansprechpartner/>
+      <button type="button" (click)="saveAnsprechpartner(ansprechpartner.value)">Speichern</button>
     </td>
     <tr></tr>
     <td>
       <label for="update-telefonnummer">Telefonnummer korrigieren: </label>
       <tr></tr>
-      <input id="update-telefonnummer" #telefonnummer/>
-      <button type="button" (click)="saveTelefonnummer(telefonnummer.value)">speichern</button>
+      <input type="text" size="43" id="update-telefonnummer" #telefonnummer/>
+      <button type="button" (click)="saveTelefonnummer(telefonnummer.value)">Speichern</button>
     </td>
   </table>
 </div>

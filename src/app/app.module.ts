@@ -52,6 +52,3 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 })
 export class AppModule {
 }
-
-// TODO css
-// TODO html

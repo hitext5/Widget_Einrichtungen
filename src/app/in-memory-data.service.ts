@@ -52,11 +52,11 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 4, counter: 0, name: 'Friseur',
         oeffnungszeiten: {
-          montag: ['07:30 - 16:15'],
-          dienstag: ['07:30 - 16:15'],
-          mittwoch: ['07:30 - 16:15'],
-          donnerstag: ['07:30 - 16:15'],
-          freitag: ['07:30 - 12:15']
+          montag: ['07:30 - 12:00', '12:00 - 16:15'],
+          dienstag: ['07:30 - 12:00', '12:00 - 16:15'],
+          mittwoch: ['07:30 - 12:00', '12:00 - 16:15'],
+          donnerstag: ['07:30 - 12:00', '12:00 - 16:15'],
+          freitag: ['07:30 - 12:00']
         },
         ansprechpartner: 'Ellis Campus Friseur',
         telefonnummer: '089-60042093',
@@ -78,11 +78,11 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 6, counter: 0, name: 'Universitätsbibliothek',
         oeffnungszeiten: {
-          montag: ['09:00 - 18:00'],
-          dienstag: ['09:00 - 18:00'],
-          mittwoch: ['09:00 - 18:00'],
-          donnerstag: ['09:00 - 18:00'],
-          freitag: ['09:00 - 16:00']
+          montag: ['09:00 - 12:00', '12:00 - 18:00'],
+          dienstag: ['09:00 - 12:00', '12:00 - 18:00'],
+          mittwoch: ['09:00 - 12:00', '12:00 - 18:00'],
+          donnerstag: ['09:00 - 12:00', '12:00 - 18:00'],
+          freitag: ['09:00 - 12:00', '12:00 - 16:00']
         },
         ansprechpartner: 'Universitätsbibliothek',
         telefonnummer: '089-60043311',
@@ -104,11 +104,11 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 8, counter: 0, name: 'Schwimmhalle',
         oeffnungszeiten: {
-          montag: ['09:00 - 20:00'],
-          dienstag: ['09:00 - 20:00'],
-          mittwoch: ['09:00 - 20:00'],
-          donnerstag: ['09:00 - 20:00'],
-          freitag: ['09:00 - 18:00'],
+          montag: ['09:00 - 12:00', '12:00 - 20:00'],
+          dienstag: ['09:00 - 12:00', '12:00 - 20:00'],
+          mittwoch: ['09:00 - 12:00', '12:00 - 20:00'],
+          donnerstag: ['09:00 - 12:00', '12:00 - 20:00'],
+          freitag: ['09:00 - 12:00', '12:00 - 18:00'],
 
         },
         ansprechpartner: 'Angelika Ketzer',
@@ -118,11 +118,11 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 9, counter: 1, name: 'Fitnessanlage',
         oeffnungszeiten: {
-          montag: ['06:30 - 24:00'],
-          dienstag: ['06:30 - 24:00'],
-          mittwoch: ['06:30 - 24:00'],
-          donnerstag: ['06:30 - 24:00'],
-          freitag: ['06:30 - 24:00']
+          montag: ['06:30 - 12:00', '12:00 - 24:00'],
+          dienstag: ['06:30 - 12:00', '12:00 - 24:00'],
+          mittwoch: ['06:30 - 12:00', '12:00 - 24:00'],
+          donnerstag: ['06:30 - 12:00', '12:00 - 24:00'],
+          freitag: ['06:30 - 12:00', '12:00 - 24:00']
         },
         ansprechpartner: 'Angelika Ketzer',
         telefonnummer: '+49-8960044161 ',
@@ -148,7 +148,7 @@ export class InMemoryDataService implements InMemoryDbService {
           dienstag: ['08:00 - 12:00', '13:00 - 15:00'],
           mittwoch: ['09:00 - 12:00', '13:00 - 15:00'],
           donnerstag: ['08:00 - 12:00', '13:00 - 15:00'],
-          freitag: ['08:00 - 12:00']
+          freitag: ['08:00 - 12:00', '-']
         },
         ansprechpartner: 'Rechenzentrum',
         telefonnummer: '+49-8960045555 ',
@@ -223,7 +223,7 @@ export class InMemoryDataService implements InMemoryDbService {
     return {facilities};
   }
 
-  //TODO Counter in Interface ergänzen und danach die ersten vier anzeigen
+
 
   genId(facilities: Facility[]): number {
     return facilities.length > 0 ? Math.max(...facilities.map(facility => facility.id)) + 1 : 11;

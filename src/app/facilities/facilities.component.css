@@ -1,8 +1,14 @@
 .facilities {
   margin: 0 0 2em 0;
   list-style-type: none;
-  padding: 0;
-  width: 15em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 0px;
+  border-top: orange 3px double;
+  border-bottom: orange 3px double;
+  border-right: orange 3px double;
+  border-left: orange 3px double;
 }
 .facilities li {
   position: relative;

@@ -1,4 +1,11 @@
 h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  border-top: orange 5px solid;
+  border-bottom: orange 5px solid;
+  border-left: orange 5px solid;
+  border-right: orange 5px solid;
   margin-bottom: 0;
 }
 nav a {
