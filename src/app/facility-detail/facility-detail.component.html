@@ -1,7 +1,8 @@
 <div *ngIf="facility">
   <br>
   <img src="/assets/images/Unibw_Logo.jpg" class="logo" alt=""/>
-  <h2><b> {{facility.name}} Details </b></h2>
+  <th style="font-size: large"> {{facility.name}} Details </th>
+  <br>
   <th>Öffnungszeiten</th>
   <table class="test">
     <tr></tr>
@@ -42,11 +43,10 @@
     <br>
     <tr><img src="/assets/images/{{facility.imageName}}.png" class="specific_picture" alt=""/></tr>
 
-
-
 <br><br>
+  <th style="font-size: large"> Änderungen vornehmen</th>
   <table>
-    <th> Änderungen vornehmen:</th>
+    <br>
     <tr></tr>
     <td>
       <label for="update-name">Namen korrigieren: </label>

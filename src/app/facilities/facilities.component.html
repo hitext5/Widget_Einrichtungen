@@ -2,7 +2,7 @@
 <app-facility-search></app-facility-search>
 <ul class="facilities">
   <th>
-    <button (click)="toggleOrder()">
+    <button (click)="toggleOrder()" style="margin-right: 10px">
       Sortierung
       <mat-icon *ngIf="order=='asc'">keyboard_arrow_down</mat-icon>
       <mat-icon *ngIf="order=='desc'">keyboard_arrow_up</mat-icon>
@@ -14,28 +14,28 @@
   <ng-container *ngIf="!onlyShowOpenFacilities">
     <tr *ngFor="let facility of facilities | orderBy: 'name': order">
       <td>
-        <button type="button" class="delete" title="Einrichtung entfernen"
-                (click)="delete(facility)">x
-        </button>
-      </td>
-      <td>
         <a routerLink="/detail/{{facility.id}}">
           {{facility.name}}
         </a>
+      </td>
+      <td>
+        <button type="button" class="delete" title="Einrichtung entfernen"
+                (click)="delete(facility)">x
+        </button>
       </td>
     </tr>
   </ng-container>
   <ng-container *ngIf="onlyShowOpenFacilities">
     <tr *ngFor="let facility of opendFacilities | orderBy: 'name': order">
       <td>
-        <button type="button" class="delete" title="Einrichtung entfernen"
-                (click)="delete(facility)">x
-        </button>
-      </td>
-      <td>
         <a routerLink="/detail/{{facility.id}}">
           {{facility.name}}
         </a>
+      </td>
+      <td>
+        <button type="button" class="delete" title="Einrichtung entfernen"
+                (click)="delete(facility)">x
+        </button>
       </td>
     </tr>
   </ng-container>

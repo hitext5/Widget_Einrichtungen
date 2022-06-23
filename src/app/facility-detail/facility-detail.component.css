@@ -10,15 +10,24 @@ table.test td{
   margin: 12px 12px 12px 12px;
   padding-left: 12px;
 }
+
 @media(min-width: 600px){
   .specific_picture{
-    width: 300px;
-    height: 300px;
+    width: 800px;
+    height: 614px;
     position: absolute;
     top: 7.5cm;
-    right: 5cm;
+    left: 27cm;
   }
 }
+
+@media(max-width: 599px){
+  .specific_picture{
+    width: 350px;
+    height: 400px;
+  }
+}
+
 @media(min-width: 600px) {
   .logo {
     width: 400px;
