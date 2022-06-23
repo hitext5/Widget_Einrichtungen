@@ -7,7 +7,7 @@ h2 {
     height: 250px;
     position: absolute;
     margin-left: 42%;
-    margin-top: 22%;
+    margin-top: 15%;
   }
 }
 @media(max-width: 599px){
@@ -22,7 +22,7 @@ h2 {
     height: 300px;
     position: absolute;
     margin-right: 10%;
-    margin-top: 20%;
+    margin-top: 13%;
   }
 }
 @media(max-width: 599px){
