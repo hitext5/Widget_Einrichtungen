@@ -13,6 +13,7 @@ export class FacilitiesComponent implements OnInit {
   order = "asc"
   onlyShowOpenFacilities = false;
   opendFacilities: Facility[] = []
+  showErrorFacility: boolean = false;
 
   constructor(
     private facilityService: FacilityService,
@@ -34,9 +35,9 @@ export class FacilitiesComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) {
-      return;
+      this.showErrorFacility = true;
     }
-    this.facilityService.addFacility({
+    else this.facilityService.addFacility({
       id: this.facilities.length + 1,
       counter: 0,
       name: name,

@@ -1,6 +1,6 @@
 <div *ngIf="facility">
   <br>
-  <img src="/assets/images/Unibw_Logo.jpg" class="logo"/>
+  <img src="/assets/images/Unibw_Logo.jpg" class="logo" alt=""/>
   <th>{{facility.name | uppercase}} Details</th>
   <table class="test">
     <tr></tr>
@@ -50,8 +50,10 @@
     <td>
       <label for="update-name">Namen korrigieren: </label>
       <tr></tr>
-      <input type="text" size="43"id="update-name" #name>
-      <button type="button" (click)="saveName(name.value)">Speichern</button><button type="button" class="goBack" (click)="goBack()">Go back</button>
+      <input type="text" size="43" id="update-name" #name>
+      <button type="button" (click)="saveName(name.value)">Speichern</button>
+      <mat-error *ngIf="showErrorName">Bitte geben Sie zunächst etwas ein. </mat-error>
+      <button type="button" class="goBack" (click)="goBack()">Go back</button>
     </td>
     <tr></tr>
     <article>
@@ -71,7 +73,7 @@
       <label>Öffnungszeiten vormittags auswählen:</label>
       <tr></tr>
       <mat-form-field>
-        <input matInput [ngxTimepicker]="pickerMorningFrom" placeholder="Von" [format]="24" [(ngModel)]="myTimePickerMorningFrom" min='08:00 am'>
+        <input matInput [ngxTimepicker]="pickerMorningFrom" placeholder="Von" [format]="24" [(ngModel)]="myTimePickerMorningFrom" min='08:00 am' max="11:59 am">
         <ngx-material-timepicker #pickerMorningFrom ></ngx-material-timepicker>
       </mat-form-field>
       <mat-form-field>
@@ -90,6 +92,7 @@
         <ngx-material-timepicker #pickerAfternoonTo ></ngx-material-timepicker>
       </mat-form-field>
       <button type="button" (click)="saveOeffnungszeiten()">Speichern</button>
+      <mat-error *ngIf="showErrorOpeningHours">Bitte wählen Sie einen Tag aus. </mat-error>
     </article>
     <tr></tr>
     <td>
@@ -97,6 +100,7 @@
       <tr></tr>
       <input type="text" size="43" id="update-ansprechpartner" #ansprechpartner/>
       <button type="button" (click)="saveAnsprechpartner(ansprechpartner.value)">Speichern</button>
+      <mat-error *ngIf="showErrorContact">Bitte geben Sie zunächst etwas ein. </mat-error>
     </td>
     <tr></tr>
     <td>
@@ -104,6 +108,7 @@
       <tr></tr>
       <input type="text" size="43" id="update-telefonnummer" #telefonnummer/>
       <button type="button" (click)="saveTelefonnummer(telefonnummer.value)">Speichern</button>
+      <mat-error *ngIf="showErrorTelefon">Die Telefonnummer darf nur Zahlen enthalten. </mat-error>
     </td>
   </table>
 </div>

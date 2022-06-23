@@ -17,6 +17,11 @@ export class FacilityDetailComponent implements OnInit {
   myTimePickerMorningTo: string = '';
   myTimePickerAfternoonFrom: string = '';
   myTimePickerAfternoonTo: string = '';
+  showErrorName: boolean = false;
+  showErrorOpeningHours: boolean = false;
+  showErrorTelefon: boolean = false;
+  showErrorContact: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private facilityService: FacilityService,
@@ -50,46 +55,40 @@ export class FacilityDetailComponent implements OnInit {
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       }
+      else this.showErrorName = true;
     }
   }
 
 
-  //TODO speichert nicht wieso? erst alle Wochentage überschrieben, dann keine Änderungen mehr
   saveOeffnungszeiten(): void {
     if (this.facility) {
-      // if (this.selectedDay != '' && this.myDatePickerFrom != '' && this.myDatePickerTo != '')
-      // auskommentiert, da eventuell Öffnungszeiten nicht vormittags oder nachmittags angeboten werden
       if (this.selectedDay == 'Montag') {
         this.facility.oeffnungszeiten.montag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
         this.facility.oeffnungszeiten.montag.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
-        console.log("Montag");
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       } else if (this.selectedDay == 'Dienstag') {
         this.facility.oeffnungszeiten.dienstag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
         this.facility.oeffnungszeiten.dienstag.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
-        console.log(this.myTimePickerMorningTo);
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       } else if (this.selectedDay == 'Mittwoch') {
         this.facility.oeffnungszeiten.mittwoch.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
         this.facility.oeffnungszeiten.mittwoch.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
-        console.log("Mittwoch");
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       } else if (this.selectedDay == 'Donnerstag') {
         this.facility.oeffnungszeiten.donnerstag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
         this.facility.oeffnungszeiten.donnerstag.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
-        console.log("Donnerstag");
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       } else if (this.selectedDay == 'Freitag') {
         this.facility.oeffnungszeiten.freitag.splice(0, 1, this.myTimePickerMorningFrom + ' - ' + this.myTimePickerMorningTo);
         this.facility.oeffnungszeiten.freitag.splice(1, 1, this.myTimePickerAfternoonFrom + ' - ' + this.myTimePickerAfternoonTo);
-        console.log("Freitag");
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       }
+      else this.showErrorOpeningHours = true;
     }
   }
 
@@ -100,6 +99,7 @@ export class FacilityDetailComponent implements OnInit {
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       }
+      else this.showErrorContact = true;
     }
   }
 
@@ -111,6 +111,7 @@ export class FacilityDetailComponent implements OnInit {
         this.facilityService.updateFacility(this.facility)
           .subscribe(() => this.goBack());
       }
+      else this.showErrorTelefon = true;
     }
   }
 

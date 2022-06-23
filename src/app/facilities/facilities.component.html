@@ -48,3 +48,4 @@
 <button type="button" class="add" title="Einrichtung hinzufügen" (click)="add(facility.value); facility.value=''">
   Speichern
 </button>
+<mat-error *ngIf="showErrorFacility">Bitte geben Sie zunächst etwas ein. </mat-error>
