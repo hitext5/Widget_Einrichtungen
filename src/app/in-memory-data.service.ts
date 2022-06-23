@@ -21,7 +21,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Frau Patricia Brandl',
         telefonnummer: '089 605969',
-        imageName: 'testbild'
+        imageName: 'Unibw Brandl'
       },
       {
         id: 2, counter: 0, name: 'UniCasino',
@@ -34,7 +34,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'UniCasino',
         telefonnummer: '+49 (0)89 6004-2685',
-        imageName: 'testbild'
+        imageName: 'Unibw Unicasino'
       },
       {
         id: 3, counter: 0, name: 'Mensa',
@@ -47,7 +47,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Mensa',
         telefonnummer: '089-34382835',
-        imageName: 'testbild'
+        imageName: 'Unibw Mensa'
       },
       {
         id: 4, counter: 0, name: 'Friseur',
@@ -60,7 +60,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Ellis Campus Friseur',
         telefonnummer: '089-60042093',
-        imageName: 'testbild'
+        imageName: 'Unibw Friseur'
       },
       {
         id: 5, counter: 0, name: 'LHBw',
@@ -73,7 +73,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Frau Dietrich',
         telefonnummer: '089-60042781',
-        imageName: 'testbild'
+        imageName: 'Unibw LHBw'
       },
       {
         id: 6, counter: 0, name: 'Universitätsbibliothek',
@@ -86,7 +86,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Universitätsbibliothek',
         telefonnummer: '089-60043311',
-        imageName: 'testbild'
+        imageName: 'Unibw Universitätsbibliothek'
       },
       {
         id: 7, counter: 0, name: 'SanVersZ',
@@ -99,7 +99,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'SanVersZ',
         telefonnummer: '089-60044950',
-        imageName: 'testbild'
+        imageName: 'Unibw SanVersZ'
       },
       {
         id: 8, counter: 0, name: 'Schwimmhalle',
@@ -113,7 +113,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Angelika Ketzer',
         telefonnummer: '+49-8960044161',
-        imageName: 'testbild'
+        imageName: 'Unibw Schwimmhalle'
       },
       {
         id: 9, counter: 1, name: 'Fitnessanlage',
@@ -126,7 +126,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Angelika Ketzer',
         telefonnummer: '+49-8960044161 ',
-        imageName: 'testbild'
+        imageName: 'Unibw Fitnessanlage'
       },
       {
         id: 10, counter: 1, name: 'Wäschekammer',
@@ -139,7 +139,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Wäschekammer',
         telefonnummer: '089-60042786',
-        imageName: 'testbild'
+        imageName: 'Unibw Wäschekammer'
       },
       {
         id: 11, counter: 2, name: 'Rechenzentrum',
@@ -152,7 +152,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Rechenzentrum',
         telefonnummer: '+49-8960045555 ',
-        imageName: 'testbild'
+        imageName: 'Unibw Rechenzentrum'
       },
       {
         id: 12, counter: 1, name: 'Corona-Testzentrum',
@@ -165,7 +165,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Corona-Testzentrum',
         telefonnummer: '089-3495238523',
-        imageName: 'testbild'
+        imageName: 'Unibw CoronaTestzentrum'
       },
       {
         id: 13, counter: 1, name: 'Poststelle',
@@ -178,7 +178,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Poststelle',
         telefonnummer: '089-3482942342',
-        imageName: 'testbild'
+        imageName: 'Unibw Poststelle'
       },
       {
         id: 14, counter: 0, name: 'PAUS/LRA/Fotostelle',
@@ -191,7 +191,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'PAUS/LRA/Fotostelle',
         telefonnummer: '089-60044670',
-        imageName: 'testbild'
+        imageName: 'Unibw PAUS'
       },
       {
         id: 15, counter: 0, name: 'Sportförderverein',
@@ -204,7 +204,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Sportförderverein',
         telefonnummer: '089-60044159',
-        imageName: 'testbild'
+        imageName: 'Unibw Sportförderverein'
       },
       {
         id: 16, counter: 0, name: 'Rechnungsführer',
@@ -217,7 +217,7 @@ export class InMemoryDataService implements InMemoryDbService {
         },
         ansprechpartner: 'Rechnungsführer',
         telefonnummer: '089-60045555',
-        imageName: 'testbild'
+        imageName: 'Unibw Rechnungsführer'
       },
     ];
     return {facilities};
