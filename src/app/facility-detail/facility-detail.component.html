@@ -40,7 +40,7 @@
     <br>
     <tr><b>Telefonnummer: </b>{{facility.telefonnummer}}</tr>
     <br>
-    <tr><img src="/assets/images/{{facility.imageName}}.png" alt=""/></tr>
+    <tr><img src="/assets/images/{{facility.imageName}}.png" class="specific_picture" alt=""/></tr>
 
 
 
@@ -54,7 +54,7 @@
       <input type="text" size="43" id="update-name" #name>
       <button type="button" (click)="saveName(name.value)">Speichern</button>
       <mat-error *ngIf="showErrorName">Bitte geben Sie zunächst etwas ein. </mat-error>
-      <button type="button" class="goBack" (click)="goBack()">Go back</button>
+      <button type="button" class="goBack" (click)="goBack()">Zurück</button>
     </td>
     <tr></tr>
     <article>

@@ -17,7 +17,7 @@ export class InMemoryDataService implements InMemoryDbService {
           dienstag: ['09:00 - 14:00', '17:00 - 22:00'],
           mittwoch: ['09:00 - 14:00', '17:00 - 22:00'],
           donnerstag: ['09:00 - 14:00', '17:00 - 22:00'],
-          freitag: ['09:00 - 13:00', '']
+          freitag: ['09:00 - 13:00', '-']
         },
         ansprechpartner: 'Frau Patricia Brandl',
         telefonnummer: '089 605969',
@@ -30,7 +30,7 @@ export class InMemoryDataService implements InMemoryDbService {
           dienstag: ['11:00 - 14:30', '18:00 - 22:00'],
           mittwoch: ['11:00 - 14:30', '18:00 - 22:00'],
           donnerstag: ['11:00 - 14:30', '18:00 - 22:00'],
-          freitag: ['', '']
+          freitag: ['-', '-']
         },
         ansprechpartner: 'UniCasino',
         telefonnummer: '+49 (0)89 6004-2685',
@@ -56,7 +56,7 @@ export class InMemoryDataService implements InMemoryDbService {
           dienstag: ['07:30 - 12:00', '12:00 - 16:15'],
           mittwoch: ['07:30 - 12:00', '12:00 - 16:15'],
           donnerstag: ['07:30 - 12:00', '12:00 - 16:15'],
-          freitag: ['07:30 - 12:00']
+          freitag: ['07:30 - 12:00', '-']
         },
         ansprechpartner: 'Ellis Campus Friseur',
         telefonnummer: '089-60042093',
@@ -65,11 +65,11 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 5, counter: 0, name: 'LHBw',
         oeffnungszeiten: {
-          montag: [''],
-          dienstag: ['08:00 - 12:00'],
-          mittwoch: ['13:00 - 15:00'],
-          donnerstag: [''],
-          freitag: ['08:00 - 12:00']
+          montag: ['-', '-'],
+          dienstag: ['08:00 - 12:00', '-'],
+          mittwoch: ['-','13:00 - 15:00'],
+          donnerstag: ['-', '-'],
+          freitag: ['08:00 - 12:00', '-']
         },
         ansprechpartner: 'Frau Dietrich',
         telefonnummer: '089-60042781',
@@ -94,8 +94,8 @@ export class InMemoryDataService implements InMemoryDbService {
           montag: ['08:00 - 12:00', '13:00 - 16:00'],
           dienstag: ['09:00 - 12:00', '13:00 - 16:00'],
           mittwoch: ['07:15 - 12:00', '13:00 - 16:00'],
-          donnerstag: ['07:15 - 12:00'],
-          freitag: ['07:15 - 12:00'],
+          donnerstag: ['07:15 - 12:00', '-'],
+          freitag: ['07:15 - 12:00', '-'],
         },
         ansprechpartner: 'SanVersZ',
         telefonnummer: '089-60044950',
@@ -135,7 +135,7 @@ export class InMemoryDataService implements InMemoryDbService {
           dienstag: ['07:00 - 11:00', '12:00 - 15:00'],
           mittwoch: ['07:00 - 11:00', '12:00 - 15:00'],
           donnerstag: ['07:00 - 11:00', '12:00 - 15:00'],
-          freitag: ['07:00 - 11:00']
+          freitag: ['07:00 - 11:00', '-']
         },
         ansprechpartner: 'Wäschekammer',
         telefonnummer: '089-60042786',
@@ -174,7 +174,7 @@ export class InMemoryDataService implements InMemoryDbService {
           dienstag: ['07:30 - 11:00', '12:00 - 15:00'],
           mittwoch: ['07:30 - 11:00', '12:00 - 15:00'],
           donnerstag: ['07:30 - 11:00', '12:00 - 15:00'],
-          freitag: ['07:30 - 11:00']
+          freitag: ['07:30 - 11:00', '-']
         },
         ansprechpartner: 'Poststelle',
         telefonnummer: '089-3482942342',
@@ -185,9 +185,9 @@ export class InMemoryDataService implements InMemoryDbService {
         oeffnungszeiten: {
           montag: ['08:00 - 11:00', '13:00 - 15:00'],
           dienstag: ['08:00 - 11:00', '13:00 - 15:00'],
-          mittwoch: ['08:00 - 11:00'],
+          mittwoch: ['08:00 - 11:00', '-'],
           donnerstag: ['08:00 - 11:00', '13:00 - 15:00'],
-          freitag: ['08:00 - 12:00']
+          freitag: ['08:00 - 12:00', '-']
         },
         ansprechpartner: 'PAUS/LRA/Fotostelle',
         telefonnummer: '089-60044670',
@@ -196,11 +196,11 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         id: 15, counter: 0, name: 'Sportförderverein',
         oeffnungszeiten: {
-          montag: ['15:00 - 18:00'],
-          dienstag: ['15:00 - 18:00'],
-          mittwoch: ['15:00 - 18:00'],
-          donnerstag: ['14:00 - 17:00'],
-          freitag: ['']
+          montag: ['-','15:00 - 18:00'],
+          dienstag: ['-','15:00 - 18:00'],
+          mittwoch: ['-','15:00 - 18:00'],
+          donnerstag: ['-','14:00 - 17:00'],
+          freitag: ['-', '-']
         },
         ansprechpartner: 'Sportförderverein',
         telefonnummer: '089-60044159',
@@ -213,7 +213,7 @@ export class InMemoryDataService implements InMemoryDbService {
           dienstag: ['08:00 - 12:00', '13:00 - 15:00'],
           mittwoch: ['09:00 - 12:00', '13:00 - 15:00'],
           donnerstag: ['08:00 - 12:00', '13:00 - 15:00'],
-          freitag: ['08:00 - 12:00']
+          freitag: ['08:00 - 12:00', '-']
         },
         ansprechpartner: 'Rechnungsführer',
         telefonnummer: '089-60045555',

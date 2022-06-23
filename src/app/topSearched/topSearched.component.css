@@ -1,27 +1,51 @@
 h2 {
   text-align: center;
 }
+@media(min-width: 600px){
+  .sport{
+    width: 500px;
+    height: 250px;
+    position: absolute;
+    right: 250px;
+    bottom: 125px;
+  }
+}
+@media(max-width: 599px){
+  .sport{
+    width: 250px;
+    height: 125px;
+  }
+}
+@media(min-width: 600px){
+  .RZ{
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    left: 250px;
+    bottom: 100px;
+  }
+}
+@media(max-width: 599px){
+  .RZ{
+    width: 200px;
+    height: 150px;
+  }
+}
 
-.sport{
-  width: 500px;
-  height: 250px;
-  position: fixed;
-  right: 250px;
-  bottom: 125px;
+@media(min-width: 600px) {
+  .logo {
+    width: 400px;
+    height: 100px;
+    position: absolute;
+    top: 1cm;
+    right: 0.5cm;
+  }
 }
-.RZ{
-  width: 400px;
-  height: 300px;
-  position: fixed;
-  left: 250px;
-  bottom: 100px;
-}
-.logo{
-  width: 400px;
-  height: 100px;
-  position: absolute;
-  top: 1cm;
-  right: 0.5cm;
+@media (max-width:599px) {
+  .logo{
+    width: 200px;
+    height: 50px;
+  }
 }
 
 .facilities-menu {

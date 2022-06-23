@@ -2,6 +2,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   font-family: sans-serif;
+  border-radius: 12px;
   border-top: orange 5px solid;
   border-bottom: orange 5px solid;
   border-left: orange 5px solid;
